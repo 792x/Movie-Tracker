@@ -1,0 +1,172 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    title Results Page
+    // Bootstrap Core CSS
+    link(rel='stylesheet', href='css/bootstrap.min.css', type='text/css')
+    // Custom Fonts
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800')
+    link(rel='stylesheet', href='font-awesome/css/font-awesome.min.css', type='text/css')
+    // Plugin CSS
+    link(rel='stylesheet', href='css/animate.min.css', type='text/css')
+    // Custom CSS
+    link(rel='stylesheet', href='css/creative.css', type='text/css')
+    link(rel='stylesheet', href='css/jquery.simpleselect.css', type='text/css')
+    // Scripts
+    // Favicon
+    link(rel="icon", type="image/ico" href="img/favicon.ico")  
+
+  body#page-top
+    nav#mainNav.navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/~s140138') Movie Tracker
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          form.navbar-form.navbar-left
+            .form-group
+              input#keyword.form-control(type='text', placeholder='Search')
+            button#search.btn.btn-default.navbar-button(type='submit')
+              span.fa.fa-1x.fa-search
+          #error.alert-warning
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='about') About
+            if user
+             li
+              a.dropdown-toggle.disabled(href='userpage', data-toggle='dropdown')
+                | #{user.customData.displayname}
+                strong#caret1.caret
+
+              ul#dropdownMenu.dropdown-menu(style='padding: 10px;')
+                li
+                  a(href='profile' style='color: black;') Settings
+                li
+                  a(href='/~s140138/logout' style='color: black;') Log out
+              li
+                a.settingsButton(href='profile') Settings
+              li
+                a.logoutButton(href='/~s140138/logout') Log out
+
+            else
+              li
+                a(href='/~s140138/login') Log In
+
+
+
+
+    .container-fluid.tall
+      .row.tall
+        // unoccupied left-side in full screen
+        .col-lg-2.col-md-2.col-xs-2
+        // content wrap
+        .col-lg-8.col-md-8.col-xs-8.main-wrap
+          .container-fluid.content-wrap
+            .row.lighter
+              // Left side in content wrap
+              .col-lg-8.info-wrap.tall
+                .container-fluid
+                  .row.left-wrap.no-padding.dark
+                    .col-lg-12.col-md-12.col-xs-12.no-padding.backdrop
+                  .row.left-wrap.text-center.dark.relative
+                    if user
+                      .col-lg-9.col-md-9.col-xs-9.no-padding.movie-box-left.title-box.movie-title
+                      .col-lg-3.col-md-3.col-xs-3.no-padding.float-right.movie-box-left.title-box
+                      .col-lg-12.col-md-12.col-xs-12.no-padding.no-margin.feedback
+                    else 
+                      .col-lg-12.col-md-12.col-xs-12.no-padding.movie-box-left.title-box.movie-title
+                  .row.left-wrap.text-center.lighter
+                    .col-lg-12.col-md-12.col-xs-12.no-padding
+                      .row.movie-ratings
+                        .container-fluid
+                          .col-lg-4.col-md-4.col-sx-4.imdb
+                          .col-lg-4.col-md-4.col-sx-4.rotten
+                          .col-lg-4.col-md-4.col-sx-4.meta
+                      //table.movie-ratings
+                        //tr.sites
+                        //tr.ratings
+                  .row.left-wrap.text-center.lighter.overview-plot
+                  .row.left-wrap.text-center.lighter.actors
+                  .row.left-wrap.text-center.lighter.awards
+              // right side in content wrap
+              .col-lg-4.no-padding
+                .container-fluid.white
+                  .row.right-wrap
+                    .col-lg-12
+                      .title-box.title-box-right
+                        h2 Popular
+                        hr
+                      #popularTitles.carousel.slide(data-ride='carousel')
+                        .carousel-inner.posterForCarousel(role='listbox')
+                        a.left.carousel-control(href='#popularTitles', role='button', data-slide='prev')
+                          span.icon-prev.wow.bounceIn
+                          span.sr-only Previous
+                        a.right.carousel-control(href='#popularTitles', role='button', data-slide='next')
+                          span.icon-next.wow.bounceIn(aria-hidden='true')
+                          span.sr-only Next
+                  .row.right-wrap
+                    .col-lg-12
+                      .title-box.title-box-right
+                        h2 Upcoming
+                        hr
+                        table.upcoming
+            .row.foot
+              .col-lg-12.no-padding.footer
+                .container-fluid
+                  .col-lg-4.col-md-4.col-sx-4.no-padding
+                    .footer-box
+                      h3  Main Navigation
+                      hr.footer-hr
+                      ul.list-unstyled
+                        li
+                          a(href='/~s140138') Home
+                        li
+                          a(href='about') About
+                        li
+                          a(href='/register') Create Account
+                  .col-lg-4.col-md-4.col-sx-4.no-padding
+                    .footer-box
+                      h3  Contact Info
+                      hr.footer-hr
+                      ul.list-unstyled
+                        li Email: m.pijl@student.tue.nl
+                        li Phone number: +1-202-555-0162
+                  .col-lg-4.col-md-4.col-sx-4.no-padding
+                    .footer-box
+                      h3  Also check...
+                      hr.footer-hr
+                      ul.list-unstyled
+                        li
+                          a(href='http://www.imdb.com/') IMDb
+                        li
+                          a(href='http://www.rottentomatoes.com/') Rotten Tomatoes
+                        li
+                          a(href='http://www.metacritic.com/') Metacritic
+        .col-lg-2.col-md-2.col-xs-2
+    // jQuery
+    script(src='js/jquery.js')
+    // Bootstrap Core JavaScript
+    script(src='js/bootstrap.min.js')
+    // Plugin JavaScript
+    script(src='js/jquery.easing.min.js')
+    script(src='js/jquery.fittext.js')
+    script(src='js/wow.min.js')
+    // Custom Theme JavaScript
+    script(src='js/creative.js')
+    // Custom Javascript
+    script(src='js/searchBar.js')
+    script(src='http://2id60.win.tue.nl:10091/socket.io/socket.io.js')
+    script(src='js/list.js')
+    script(src='js/functionsTitle.js')
+    script(src='js/populateCarousel.js')
+    script(src='js/upcomingMovies.js')
+    script(src='js/jquery.simpleselect.js')

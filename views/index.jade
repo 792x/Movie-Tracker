@@ -1,0 +1,228 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    title Movie Tracker
+    // Bootstrap Core CSS
+    link(rel='stylesheet', href='css/bootstrap.min.css', type='text/css')
+    // Custom Fonts
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800')
+    link(href='http://fonts.googleapis.com/css?family=Oleo+Script', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='font-awesome/css/font-awesome.min.css', type='text/css')
+    // Plugin CSS
+    link(rel='stylesheet', href='css/animate.min.css', type='text/css')
+    // Custom CSS
+    link(rel='stylesheet', href='css/creative.css', type='text/css')
+    // Scripts
+    // Favicon
+    link(rel="icon", type="image/ico" href="img/favicon.ico")  
+
+  body#page-top
+    nav#mainNav.navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='') Movie Tracker
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          form.navbar-form.navbar-left
+            .form-group
+              input#keyword.form-control(type='text', placeholder='Search')
+            button#search.btn.btn-default.navbar-button(type='submit')
+              span.fa.fa-1x.fa-search
+          #error.alert-warning
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='about') About
+            if user
+             li
+              a.dropdown-toggle.disabled(href='userpage', data-toggle='dropdown')
+                | #{user.customData.displayname}
+                strong#caret1.caret
+
+              ul#dropdownMenu.dropdown-menu(style='padding: 10px;')
+                li
+                  a(href='profile' style='color: black;') Settings
+                li
+                  a(href='/~s140138/logout' style='color: black;') Log out
+              li
+                a.settingsButton(href='profile') Settings
+              li
+                a.logoutButton(href='/~s140138/logout') Log out
+
+            else
+              li
+                a(href='/~s140138/login') Log In
+
+
+
+    .container-fluid.tall
+      .row.tall
+        // unoccupied left-side in full screen
+        .col-lg-2.col-md-2.col-xs-2
+        // content wrap
+        .col-lg-8.col-md-8.col-xs-8.main-wrap
+          .container-fluid.content-wrap
+            .row.lighter
+              // Left side in content wrap
+              .col-lg-8.no-padding
+                .container-fluid
+                  .row.left-wrap.text-center.darker
+                    .col-lg-12.col-md-12.col-xs-12.no-padding.title-box-left.title-box
+                      if user
+                        h2.left-title Welcome, #{user.customData.displayname}
+                        hr.whiteSpacing
+                      else
+                        h2.left-title Welcome!
+                        hr.whiteSpacing
+                    .col-lg-12.col-md-12.col-sx-12.text-left.sub-titel
+                      h4
+                        | Welcome to Movie Tracker, your web application for everything movie related.
+                        | Get started right away and enjoy the following features:
+                      br
+                    .col-lg-6.col-md-6.col-sx-6
+                      span.fa.fa-4x.fa-search.wow.bounceIn
+                      h3 Find Movies
+                      p.text-left
+                        | Find movie titles you are interested in for more information.
+                        | See the ratings from various movie related websites all in one!
+                    .col-lg-6.col-md-6.col-sx-6
+                      span.fa.fa-4x.fa-list.wow.bounceIn
+                      h3 Upcoming Movies
+                      p.text-left
+                        | Keep updated with the "Upcoming" list at the right side of the page
+                        | where we provid you with a list of soon to be airing movies.
+                  if user
+                    .row.left-wrap.text-center.lighter
+                      .col-lg-12.col-md-12.col-xs-12.no-padding.title-box-left.title-box
+                        h2.left-title What can I do here?
+                        hr.whiteSpacing
+                      .col-lg-12.col-md-12.col-sx-12.text-left.sub-titel
+                        h4
+                          | There's tons to do in this web app. Check out all the features below! 
+                        br
+                      .col-lg-4.col-md-4.col-sx-4
+                        span.fa.fa-4x.fa-check-square.wow.bounceIn
+                        h3 Give ratings
+                        p.text-left
+                          | Keep track of your personal ratings for every movie you have ever seen.
+                      .col-lg-4.col-md-4.col-sx-4
+                        span.fa.fa-4x.fa-list.wow.bounceIn
+                        h3 Create lists
+                        p.text-left
+                          | Enjoy the ability to create useful lists that enable you to keep track of the movies you plan to watch in the future,
+                          | or the movies that you have seen already by adding them to your personal movie tracker list.
+                      .col-lg-4.col-md-4.col-sx-4
+                        span.fa.fa-4x.fa-share-alt.wow.bounceIn
+                        h3 Share lists
+                        p.text-left
+                          | Share your personal Movie Tracker list with friends by giving them the URL of your own userpage.
+                  else
+                    .row.left-wrap.text-center.lighter
+                      .col-lg-12.col-md-12.col-xs-12.no-padding.title-box-left.title-box
+                        h2.left-title Join Movie Tracker now!
+                        hr.whiteSpacing
+                      .col-lg-12.col-md-12.col-sx-12.text-left.sub-titel
+                        h4
+                          | #[a(href="/register") Register] now for free on Movie Tracker and enjoy all of our awesome features!
+                      .col-lg-4.col-md-4.col-sx-4
+                        span.fa.fa-4x.fa-check-square.wow.bounceIn
+                        h3 Give ratings
+                        p.text-left
+                          | Keep track of your personal ratings for every movie you have ever seen.
+                      .col-lg-4.col-md-4.col-sx-4
+                        span.fa.fa-4x.fa-list.wow.bounceIn
+                        h3 Create lists
+                        p.text-left
+                          | Enjoy the ability to create useful lists that enable you to keep track of the movies you plan to watch in the future,
+                          | or the movies that you have seen already by adding them to your personal movie tracker list.
+                      .col-lg-4.col-md-4.col-sx-4
+                        span.fa.fa-4x.fa-share-alt.wow.bounceIn
+                        h3 Share lists
+                        p.text-left
+                          | Share your personal Movie Tracker list with friends by giving them the URL of your own userpage.
+                  .row.left-wrap.text-center.darker
+                    .col-lg-12.col-md-12.col-xs-12.no-padding.title-box-left.title-box
+                      h2.left-title In the spotlight
+                      hr.whiteSpacing
+                    .col-lg-4.col-md-4.col-sx-4.spotlight-poster
+                    .col-lg-4.col-md-4.col-sx-4.spotlight-poster2
+                    .col-lg-4.col-md-4.col-sx-4.spotlight-poster3
+
+              // right side in content wrap
+              .col-lg-4.no-padding
+                .container-fluid.white
+                  .row.right-wrap
+                    .col-lg-12
+                      .title-box.title-box-right
+                        h2 Popular
+                        hr
+                      #popularTitles.carousel.slide(data-ride='carousel')
+                        .carousel-inner.posterForCarousel(role='listbox')
+                        a.left.carousel-control(href='#popularTitles', role='button', data-slide='prev')
+                          span.icon-prev.wow.bounceIn
+                          span.sr-only Previous
+                        a.right.carousel-control(href='#popularTitles', role='button', data-slide='next')
+                          span.icon-next.wow.bounceIn(aria-hidden='true')
+                          span.sr-only Next
+                  .row.right-wrap
+                    .col-lg-12
+                      .title-box.title-box-right
+                        h2 Upcoming
+                        hr
+                        table.upcoming
+            .row.foot
+              .col-lg-12.no-padding.footer
+                .container-fluid
+                  .col-lg-4.col-md-4.col-sx-4.no-padding
+                    .footer-box
+                      h3  Main Navigation
+                      hr.footer-hr
+                      ul.list-unstyled
+                        li
+                          a(href='') Home
+                        li
+                          a(href='about') About
+                        li
+                          a(href='/register') Create Account
+                  .col-lg-4.col-md-4.col-sx-4.no-padding
+                    .footer-box
+                      h3  Contact Info
+                      hr.footer-hr
+                      ul.list-unstyled
+                        li Email: m.pijl@student.tue.nl
+                        li Phone number: +1-202-555-0162
+                  .col-lg-4.col-md-4.col-sx-4.no-padding
+                    .footer-box
+                      h3  Also check...
+                      hr.footer-hr
+                      ul.list-unstyled
+                        li
+                          a(href='http://www.imdb.com/') IMDb
+                        li
+                          a(href='http://www.rottentomatoes.com/') Rotten Tomatoes
+                        li
+                          a(href='http://www.metacritic.com/') Metacritic
+        .col-lg-2.col-md-2.col-xs-2
+    // jQuery
+    script(src='js/jquery.js')
+    // Bootstrap Core JavaScript
+    script(src='js/bootstrap.min.js')
+    // Plugin JavaScript
+    script(src='js/jquery.easing.min.js')
+    script(src='js/jquery.fittext.js')
+    script(src='js/wow.min.js')
+    // Custom Theme JavaScript
+    script(src='js/creative.js')
+    // Custom Javascript
+    script(src='js/spotlight.js')
+    script(src='js/searchBar.js')
+    script(src='js/populateCarousel.js')
+    script(src='js/upcomingMovies.js')

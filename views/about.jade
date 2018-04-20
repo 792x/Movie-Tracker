@@ -1,0 +1,211 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    title Movie Tracker
+    // Bootstrap Core CSS
+    link(rel='stylesheet', href='css/bootstrap.min.css', type='text/css')
+    // Custom Fonts
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700,800')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800')
+    link(href='http://fonts.googleapis.com/css?family=Oleo+Script', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', href='font-awesome/css/font-awesome.min.css', type='text/css')
+    // Plugin CSS
+    link(rel='stylesheet', href='css/animate.min.css', type='text/css')
+    // Custom CSS
+    link(rel='stylesheet', href='css/creative.css', type='text/css')
+    // Scripts
+    // Favicon
+    link(rel="icon", type="image/ico" href="img/favicon.ico")  
+
+  body#page-top
+    nav#mainNav.navbar.navbar-default.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/~s140138') Movie Tracker
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          form.navbar-form.navbar-left
+            .form-group
+              input#keyword.form-control(type='text', placeholder='Search')
+            button#search.btn.btn-default.navbar-button(type='submit')
+              span.fa.fa-1x.fa-search
+          #error.alert-warning
+          ul.nav.navbar-nav.navbar-right
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='about') About
+            if user
+             li
+              a.dropdown-toggle.disabled(href='userpage', data-toggle='dropdown')
+                | #{user.customData.displayname}
+                strong#caret1.caret
+
+              ul#dropdownMenu.dropdown-menu(style='padding: 10px;')
+                li
+                  a(href='profile' style='color: black;') Settings
+                li
+                  a(href='/~s140138/logout' style='color: black;') Log out
+              li
+                a.settingsButton(href='profile') Settings
+              li
+                a.logoutButton(href='/~s140138/logout') Log out
+
+            else
+              li
+                a(href='/~s140138/login') Log In
+          
+
+            //li.dropdown
+              //a.dropdown-toggle(href='#', data-toggle='dropdown')
+                //| 
+                //strong.caret
+              //.dropdown-menu(style='padding: 15px; padding-bottom: 5px;')
+                // Login form here
+                //form(action='[YOUR ACTION]', method='post', accept-charset='UTF-8')
+                  //h5 Username
+                  //input#user_username(style='margin-bottom: 15px;', type='text', name='user[username]', size='30')
+                  //h5 Password
+                  //input#user_password(style='margin-bottom: 15px;', type='password', name='user[password]', size='30')
+                  //br
+                  //input#user_remember_me(style='float: left; margin-right: 10px;', type='checkbox', name='user[remember_me]', value='1')
+                  //label.string.optional(for='user_remember_me')  Remember me
+                  //input.btn.btn-primary(style='clear: left; width: 100%; height: 32px; font-size: 13px;', type='submit', name='commit', value='Sign In')
+                //a.h6right(href='#') Create an account
+                //a.navbar-brand(href='/logout') Logout
+
+
+
+
+    .container-fluid.tall
+      .row.tall
+        // unoccupied left-side in full screen
+        .col-lg-2.col-md-2.col-xs-2
+        // content wrap
+        .col-lg-8.col-md-8.col-xs-8.main-wrap
+          .container-fluid.content-wrap
+            .row.lighter
+              // Left side in content wrap
+              .col-lg-8.no-padding
+                .container-fluid
+                  .row.left-wrap.text-center.darker
+                    .col-lg-12.col-md-12.col-xs-12.no-padding.title-box-left.title-box
+                      h2.left-title  About the page
+                      hr.whiteSpacing
+                    .col-lg-12.col-md-12.col-xs-12.no-padding.paragraph
+                      p.text-left
+                        | Movie Tracker is a web app for movie lovers.
+                        | Now, you can keep track of which movies you plan to watch in the future and the movies you have seen already. 
+                        | We provide you with ratings gathered from #[a(href="http://www.imdb.com/") IMDb #[i.fa.fa-external-link]], #[a(href="http://www.metacritic.com/") MetaCritic #[i.fa.fa-external-link]] and #[a(href="http://www.rottentomatoes.com/") RottenTomatoes #[i.fa.fa-external-link]] to help you decide on what to watch next! 
+                        | Moreover, we provide you with general information like a plot overview, the main actors starring in the film and a critical reception from critics. 
+                        | Stay up-to-date and prepared with our "upcoming movies" widget which can be found in the right column of most of the pages.
+                      p.text-left
+                  .row.left-wrap.text-center.lighter
+                    .col-lg-12.col-md-12.col-xs-12.no-padding.title-box-left.title-box
+                      h2.left-title About Us
+                      hr.whiteSpacing
+                    .col-lg-12.col-md-12.col-xs-12.no-padding.paragraph
+                      p.text-left
+                        | We are three students following the course #[a(href="http://www.win.tue.nl/~jvanscho/index.html#webtechnology") Web Technology (2ID60) #[i.fa.fa-external-link]] at Eindhoven University of Technology. We represent group 12 in this course. 
+                        | Our group consists of Jochem Bek (0903863) studying Psychology and Technology, Mitchell Pijl (09098487), also studying Psychology and Technology
+                        | and Casper Siksma (0902066) studying Web Science.
+                  .row.left-wrap.text-center.darker
+                    .col-lg-12.col-md-12.col-xs-12.no-padding.title-box-left.title-box
+                      h2.left-title Utilities
+                      hr.whiteSpacing
+                    .col-lg-12.col-md-12.col-xs-12.no-padding.paragraph
+                      p.text-left
+                        | The frontend of our website is done with #[a(href="http://jade-lang.com/") JADE #[i.fa.fa-external-link]], CSS, JavaScript, completely responsive with the use of #[a(href="http://getbootstrap.com/") Bootstrap #[i.fa.fa-external-link]] and optimal user interaction with #[a(href="https://jquery.com/") JQuery #[i.fa.fa-external-link]]. 
+                        | We make use of two databases to handle all the data in a safe manner. Only the user can change their data, except from the admins ofcourse. To keep track of your profile information and movie lists we use #[a(href="https://www.mongodb.org/") MongoDB #[i.fa.fa-external-link]] and 
+                        |  #[a(href="https://stormpath.com/") Stormpath #[i.fa.fa-external-link]] respectively. 
+                        | We developed our backend using #[a(href="https://nodejs.org/en/") NodeJS #[i.fa.fa-external-link]] with the help of #[a(href="http://socket.io/") Socket.io #[i.fa.fa-external-link]]. 
+                        | We used two public REST API's to collect all the necessary movie data for you. 
+                        | The first one being #[a(href="http://www.omdbapi.com/") OMDb API #[i.fa.fa-external-link]] for its ability to provide results as XML data by entering a keyword and specific title data as JSON. 
+                        | The second one being #[a(href="https://www.themoviedb.org/") TMDb API #[i.fa.fa-external-link]] for their beautiful movie posters that we use. 
+                        | You should definitely check these two APIs out, because they're full of great content. 
+                  .row.left-wrap.text-center.lighter
+                    .col-lg-12.col-md-12.col-xs-12.no-padding.title-box-left.title-box
+                      h2.left-title Disclaimer
+                      hr.whiteSpacing
+                    .col-lg-12.col-md-12.col-xs-12.no-padding.paragraph
+                      p.text-left
+                        | This web application was created for the #[a(href="http://www.win.tue.nl/~jvanscho/index.html#webtechnology") Web Technology course (2ID60) #[i.fa.fa-external-link]] at the Technical University of Eindhoven. 
+                        | Therefore, the intentions of creating this website were for educational purposes only. 
+                        | Alongside licensors mentioned above, we also used several JQuery and JavaScript plug in scripts. Our site is originally built from the #[a(href="http://startbootstrap.com/template-overviews/creative/") Creative bootstrap theme #[i.fa.fa-external-link]], but only a few resemblances between the theme and our site are left. 
+                        | We want to make clear that we are not affiliated with any of the aforementioned licensors. In case any licensor visits this site and wants their content to be removed, please feel free to e-mail us at the adress found in the footer below.
+              // right side in content wrap
+              .col-lg-4.no-padding
+                .container-fluid.white
+                  .row.right-wrap
+                    .col-lg-12
+                      .title-box.title-box-right
+                        h2 Popular
+                        hr
+                      #popularTitles.carousel.slide(data-ride='carousel')
+                        .carousel-inner.posterForCarousel(role='listbox')
+                        a.left.carousel-control(href='#popularTitles', role='button', data-slide='prev')
+                          span.icon-prev.wow.bounceIn
+                          span.sr-only Previous
+                        a.right.carousel-control(href='#popularTitles', role='button', data-slide='next')
+                          span.icon-next.wow.bounceIn(aria-hidden='true')
+                          span.sr-only Next
+                  .row.right-wrap
+                    .col-lg-12
+                      .title-box.title-box-right
+                        h2 Upcoming
+                        hr
+                        table.upcoming
+            .row.foot
+              .col-lg-12.no-padding.footer
+                .container-fluid
+                  .col-lg-4.col-md-4.col-sx-4.no-padding
+                    .footer-box
+                      h3  Main Navigation
+                      hr.footer-hr
+                      ul.list-unstyled
+                        li
+                          a(href='/~s140138') Home
+                        li
+                          a(href='about') About
+                        li
+                          a(href='/register') Create Account
+                  .col-lg-4.col-md-4.col-sx-4.no-padding
+                    .footer-box
+                      h3  Contact Info
+                      hr.footer-hr
+                      ul.list-unstyled
+                        li Email: m.pijl@student.tue.nl
+                        li Phone number: +1-202-555-0162
+                  .col-lg-4.col-md-4.col-sx-4.no-padding
+                    .footer-box
+                      h3  Also check...
+                      hr.footer-hr
+                      ul.list-unstyled
+                        li
+                          a(href='http://www.imdb.com/') IMDb
+                        li
+                          a(href='http://www.rottentomatoes.com/') Rotten Tomatoes
+                        li
+                          a(href='http://www.metacritic.com/') Metacritic
+        .col-lg-2.col-md-2.col-xs-2
+    // jQuery
+    script(src='js/jquery.js')
+    // Bootstrap Core JavaScript
+    script(src='js/bootstrap.min.js')
+    // Plugin JavaScript
+    script(src='js/jquery.easing.min.js')
+    script(src='js/jquery.fittext.js')
+    script(src='js/wow.min.js')
+    // Custom Theme JavaScript
+    script(src='js/creative.js')
+    // Custom Javascript
+    script(src='js/searchBar.js')
+    script(src='js/populateCarousel.js')
+    script(src='js/upcomingMovies.js')
