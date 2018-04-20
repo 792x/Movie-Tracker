@@ -20,4 +20,4 @@ A Title page while the user is logged in.
 A User’s list page while the user is logged in.
 
 ![alt text](https://i.imgur.com/E4yeEvI.png) ![alt text](https://i.imgur.com/tC0IlEZ.png)
-A Title page on a mobile screen.                    A User’s list page on a mobile screen.
+A Title page on a mobile screen.                                               A User’s list page on a mobile screen.
