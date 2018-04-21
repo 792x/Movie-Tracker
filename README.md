@@ -18,8 +18,8 @@ The results page when a keyword “Star Wars” was used, showing numerous resul
 ![alt text](https://i.imgur.com/O4HpQNL.png)
 A Title page while the user is logged in.
 
-![alt text](https://i.imgur.com/8Hzsxu1.png)
-A User’s list page while the user is logged in.
+![alt text](https://i.imgur.com/mYx4EBn.png)
+A User’s list page while the user is logged in (name censored).
 
 ![alt text](https://i.imgur.com/E4yeEvI.png) ![alt text](https://i.imgur.com/tC0IlEZ.png)
 A Title page and user’s list page on a mobile screen.
